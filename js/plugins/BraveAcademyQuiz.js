@@ -1,9 +1,9 @@
 //=============================================================================
-// BraveAcademyQuiz.js
+// BraveAcademyQuiz.js  v2.0
 //=============================================================================
 /*:
  * @target MZ
- * @plugindesc 勇者學院問答系統（JSON題庫／教師ID）v1.3
+ * @plugindesc 勇者學院問答 v2.0（一老師一題／答對勝利後消失）
  * @author BraveAcademy
  *
  * @param quizFolder
@@ -14,44 +14,25 @@
  * @text 開始考試
  * @arg teacherId
  * @type string
- * @default G1_CH
- *
- * @command readProgress
- * @text 讀取進度
- * @arg teacherId
- * @type string
- * @default G1_CH
- *
- * @command applyCorrectBattle
- * @text 套用答對戰鬥修正
- *
- * @command applyWrongBattle
- * @text 套用答錯戰鬥修正
- *
- * @command grantReward
- * @text 發放本題獎勵
- *
- * @command markTeacherComplete
- * @text 標記老師完成
- * @arg teacherId
- * @type string
- * @default G1_CH
+ * @default G1_CH_01
  *
  * @help
  * 題庫：data/quiz/grade1.json
- * 教師事件：插件指令 startExam + teacherId（例 G1_SC）
+ * 每位老師一題。
+ * 答對 → 戰鬥勝利 → 老師消失（獨立開關 A）
+ * 答錯 → 扣血 → 戰鬥 → 老師留下，須再挑戰到答對勝利
+ * 同科 10 位全過 → 科目徽章＋開關
  *
- * v1.3：
- * - 戰鬥結果用 result===0 判定勝利（不用 !!result）
- * - 不用 $gameParty.isAlive（改 aliveMembers）
- * - 獎勵用 gainItem($dataWeapons/$dataArmors/$dataItems)
+ * v2.0：修正連戰／多題回調造成的閃退
  */
 
 (() => {
   "use strict";
 
   const PLUGIN = "BraveAcademyQuiz";
-  const FOLDER = String(PluginManager.parameters(PLUGIN).quizFolder || "quiz");
+  const FOLDER = String(
+    (PluginManager.parameters(PLUGIN) || {}).quizFolder || "quiz"
+  );
 
   const V = {
     grade: 31,
@@ -61,22 +42,16 @@
     playerAns: 35,
     correctAns: 36,
     wrongCount: 37,
-    teacherProgress: 38,
+    subjectProgress: 38,
     teachersCleared: 39,
     badgeCount: 40,
     troopTemp: 41,
     rewardTemp: 42
   };
   const S = {
-    prologue: 21,
-    enrolled: 22,
     examActive: 23,
-    teacherBase: 24,
-    examOpen: 30,
-    grade1Clear: 31,
-    bossDown: 32
+    examOpen: 30
   };
-  const TEACHER_ORDER = ["G1_CH", "G1_MA", "G1_HI", "G1_GE", "G1_SC", "G1_MG"];
   const SUBJECT_CODE = {
     "國文": 1,
     "數學": 2,
@@ -87,59 +62,25 @@
   };
 
   const BA = (window.BraveAcademy = window.BraveAcademy || {});
-  BA._db = null;
-  BA._byTeacher = {};
-  BA._state = null;
-  BA._busy = false;
+  BA.db = null;
+  BA.byTeacher = {};
+  BA.subjects = [];
+  BA.state = null;
+  BA.busy = false;
 
-  function setV(id, val) { $gameVariables.setValue(id, val | 0); }
-  function getV(id) { return $gameVariables.value(id) | 0; }
-  function setS(id, val) { $gameSwitches.setValue(id, !!val); }
-  function getS(id) { return !!$gameSwitches.value(id); }
+  const setV = (id, val) => $gameVariables.setValue(id, val | 0);
+  const setS = (id, val) => $gameSwitches.setValue(id, !!val);
+  const getS = (id) => !!$gameSwitches.value(id);
 
-  function partyAlive() {
-    return $gameParty.aliveMembers().length > 0;
+  function clearedStore() {
+    if (!$gameSystem._baClearedTeachers) $gameSystem._baClearedTeachers = {};
+    return $gameSystem._baClearedTeachers;
   }
-
-  function loadQuiz() {
-    if (BA._db) return Promise.resolve(BA._db);
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      xhr.open("GET", "data/" + FOLDER + "/grade1.json");
-      xhr.overrideMimeType("application/json");
-      xhr.onload = () => {
-        if (xhr.status < 400) {
-          BA._db = JSON.parse(xhr.responseText);
-          BA._byTeacher = {};
-          (BA._db.questions || []).forEach((q) => {
-            (BA._byTeacher[q.teacherId] = BA._byTeacher[q.teacherId] || []).push(q);
-          });
-          resolve(BA._db);
-        } else {
-          reject(new Error("quiz HTTP " + xhr.status));
-        }
-      };
-      xhr.onerror = () => reject(new Error("quiz XHR error"));
-      xhr.send();
-    });
+  function isTeacherCleared(tid) {
+    return !!clearedStore()[String(tid)];
   }
-
-  function teacherMeta(tid) {
-    return ((BA._db && BA._db.teachers) || []).find((t) => t.teacherId === tid) || null;
-  }
-
-  function teacherSwitch(tid) {
-    const i = TEACHER_ORDER.indexOf(tid);
-    return i >= 0 ? S.teacherBase + i : 0;
-  }
-
-  function countBadges() {
-    let n = 0;
-    for (let i = 0; i < 6; i++) if (getS(S.teacherBase + i)) n++;
-    setV(V.badgeCount, n);
-    setV(V.teachersCleared, n);
-    if (n >= 6) setS(S.examOpen, true);
-    return n;
+  function markTeacherCleared(tid) {
+    clearedStore()[String(tid)] = true;
   }
 
   function ensureHpFloor() {
@@ -147,220 +88,289 @@
       if (a.hp < 1) a.setHp(1);
     });
   }
-
-  function applyWrongHpPenalty(wrongCount) {
-    const rates = [0.1, 0.15, 0.2, 0.1];
-    const rate = rates[Math.min(Math.max(wrongCount, 1) - 1, rates.length - 1)];
+  function applyWrongHpPenalty() {
     $gameParty.members().forEach((a) => {
-      const loss = Math.max(1, Math.floor(a.mhp * rate));
+      const loss = Math.max(1, Math.floor(a.mhp * 0.1));
       a.setHp(Math.max(1, a.hp - loss));
     });
-    ensureHpFloor();
+  }
+
+  function finishIdle() {
+    BA.busy = false;
+    setS(S.examActive, false);
+    BA.state = null;
   }
 
   function waitMessageThen(fn) {
-    const iv = setInterval(() => {
-      if (!$gameMessage.isBusy()) {
-        clearInterval(iv);
-        try {
-          fn();
-        } catch (e) {
-          console.error("[BraveAcademyQuiz]", e);
-        }
+    const tick = () => {
+      if ($gameMessage.isBusy()) {
+        setTimeout(tick, 16);
+        return;
       }
-    }, 16);
+      try {
+        fn();
+      } catch (e) {
+        console.error("[BraveAcademyQuiz]", e);
+        finishIdle();
+      }
+    };
+    setTimeout(tick, 16);
   }
 
-  BA.applyCorrectBattleMods = function () {
-    $gameParty.members().forEach((a) => {
-      a.gainMp(Math.max(1, Math.floor(a.mmp * 0.1)));
+  function whenOnMap(fn) {
+    const tick = () => {
+      if ($gameMessage.isBusy()) {
+        setTimeout(tick, 16);
+        return;
+      }
+      if (!(SceneManager._scene instanceof Scene_Map)) {
+        setTimeout(tick, 16);
+        return;
+      }
+      try {
+        fn();
+      } catch (e) {
+        console.error("[BraveAcademyQuiz]", e);
+        finishIdle();
+      }
+    };
+    setTimeout(tick, 16);
+  }
+
+  function loadQuiz() {
+    if (BA.db) return Promise.resolve(BA.db);
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "data/" + FOLDER + "/grade1.json");
+      xhr.overrideMimeType("application/json");
+      xhr.onload = () => {
+        if (xhr.status < 400) {
+          const db = JSON.parse(xhr.responseText);
+          BA.db = db;
+          BA.subjects = db.subjects || [];
+          BA.byTeacher = {};
+          (db.questions || []).forEach((q) => {
+            BA.byTeacher[q.teacherId] = q;
+          });
+          resolve(db);
+        } else reject(new Error("quiz HTTP " + xhr.status));
+      };
+      xhr.onerror = () => reject(new Error("quiz XHR error"));
+      xhr.send();
     });
-    if (BA._state && BA._state.question) {
-      setV(V.troopTemp, BA._state.question.troopIdCorrect | 0);
-    }
-  };
+  }
 
-  BA.applyWrongBattleMods = function () {
-    ensureHpFloor();
-    if (BA._state && BA._state.question) {
-      setV(V.troopTemp, BA._state.question.troopIdWrong | 0);
-    }
-  };
+  function teacherMeta(tid) {
+    return ((BA.db && BA.db.teachers) || []).find((t) => t.teacherId === tid);
+  }
+  function subjectMetaById(id) {
+    return BA.subjects.find((s) => s.id === id);
+  }
+  function subjectMetaByName(name) {
+    return BA.subjects.find((s) => s.name === name);
+  }
 
-  BA.grantCurrentReward = function () {
-    const q = BA._state && BA._state.question;
-    if (!q || !q.rewardId) return;
-    const id = q.rewardId | 0;
+  function countSubjectCleared(subjectId) {
+    const prefix = "G1_" + subjectId + "_";
+    let n = 0;
+    const store = clearedStore();
+    Object.keys(store).forEach((tid) => {
+      if (store[tid] && tid.indexOf(prefix) === 0) n++;
+    });
+    return n;
+  }
+
+  function countBadges() {
+    let n = 0;
+    BA.subjects.forEach((s) => {
+      const sw = s.clearSwitchId;
+      if (sw && getS(sw)) n++;
+    });
+    setV(V.badgeCount, n);
+    setV(V.teachersCleared, n);
+    if (n >= 6) setS(S.examOpen, true);
+    return n;
+  }
+
+  function grantReward(q) {
+    if (!q) return;
+    const id = (q.rewardId || 0) | 0;
+    if (!id) return;
     const t = String(q.rewardType || "item");
     if (t === "weapon" && $dataWeapons[id]) $gameParty.gainItem($dataWeapons[id], 1);
     else if (t === "armor" && $dataArmors[id]) $gameParty.gainItem($dataArmors[id], 1);
     else if ($dataItems[id]) $gameParty.gainItem($dataItems[id], 1);
-  };
+  }
 
-  BA.markTeacherComplete = function (tid) {
-    const sw = teacherSwitch(tid);
-    if (sw) setS(sw, true);
-    const meta = teacherMeta(tid);
-    if (meta && meta.badgeItemId && $dataItems[meta.badgeItemId]) {
-      $gameParty.gainItem($dataItems[meta.badgeItemId], 1);
+  function eraseTeacherEvent(eventId) {
+    if (!eventId) return;
+    $gameSelfSwitches.setValue([$gameMap.mapId(), eventId, "A"], true);
+    const ev = $gameMap.event(eventId);
+    if (ev) ev.refresh();
+  }
+
+  function maybeGrantSubjectBadge(subjectId) {
+    const sub = subjectMetaById(subjectId);
+    if (!sub) return;
+    const cleared = countSubjectCleared(subjectId);
+    setV(V.subjectProgress, cleared);
+    if (cleared < 10) {
+      $gameMessage.add(sub.name + "進度：" + cleared + "／10 位老師。");
+      return;
     }
-    countBadges();
-    setS(S.examActive, false);
-    BA._state = null;
-    BA._busy = false;
-  };
+    const sw = sub.clearSwitchId;
+    if (sw && !getS(sw)) {
+      setS(sw, true);
+      const badgeId = sub.badgeItemId;
+      if (badgeId && $dataItems[badgeId]) {
+        $gameParty.gainItem($dataItems[badgeId], 1);
+      }
+      $gameMessage.add(sub.name + "十位老師全數通過！獲得徽章！");
+      countBadges();
+      if (getS(S.examOpen)) {
+        $gameMessage.add("六枚徽章集齊，綜合考場開放了！");
+      }
+    }
+  }
 
-  BA.readProgress = function (tid) {
-    const list = BA._byTeacher[tid] || [];
-    const sw = teacherSwitch(tid);
-    const cleared = !!(sw && getS(sw));
-    const progress = cleared
-      ? list.length
-      : Math.max(0, Math.min(getV(V.teacherProgress), list.length));
-    return { cleared: cleared, progress: progress, total: list.length };
-  };
-
-  function syncVars(tid, q, qNo1, wrong) {
-    const meta = teacherMeta(tid) || {};
+  function syncVars(q, wrong) {
     setV(V.grade, 1);
-    setV(V.subject, SUBJECT_CODE[q.subject] || SUBJECT_CODE[meta.subject] || 0);
-    setV(V.teacher, TEACHER_ORDER.indexOf(tid) + 1);
-    setV(V.qNo, qNo1);
+    setV(V.subject, SUBJECT_CODE[q.subject] || 0);
+    setV(V.teacher, 0);
+    setV(V.qNo, 1);
     setV(V.correctAns, q.answer | 0);
     setV(V.wrongCount, wrong | 0);
-    setV(V.teacherProgress, Math.max(0, qNo1 - 1));
-    setV(V.rewardTemp, q.rewardId | 0);
+    setV(V.rewardTemp, (q.rewardId || 0) | 0);
   }
 
   function askQuestion() {
-    const st = BA._state;
+    const st = BA.state;
     if (!st) return;
-    const list = BA._byTeacher[st.teacherId];
-    if (!list || st.index >= list.length) {
-      BA.markTeacherComplete(st.teacherId);
-      $gameMessage.add("恭喜通過本科考試，獲得徽章！");
+    const q = BA.byTeacher[st.teacherId];
+    if (!q) {
+      $gameMessage.add("找不到題目：" + st.teacherId);
+      finishIdle();
       return;
     }
-    const q = list[st.index];
     st.question = q;
-    syncVars(st.teacherId, q, st.index + 1, st.wrongCount);
+    syncVars(q, st.wrongCount);
     setS(S.examActive, true);
-    $gameMessage.add("【" + q.subject + "】第 " + (st.index + 1) + "／" + list.length + " 題");
+    const meta = teacherMeta(st.teacherId);
+    const name = (meta && meta.name) || "老師";
+    $gameMessage.add("【" + name + "】挑戰題");
     $gameMessage.add(String(q.question));
-    $gameMessage.setChoices(q.options.slice(0, 4), 0, -1);
+    const opts = (q.options || []).slice(0, 4);
+    while (opts.length < 4) opts.push("—");
+    $gameMessage.setChoices(opts, 0, -1);
     $gameMessage.setChoiceCallback((i) => onAnswer(i));
   }
 
   function onAnswer(choiceIndex) {
-    const st = BA._state;
+    const st = BA.state;
     if (!st || !st.question) return;
     const q = st.question;
     setV(V.playerAns, choiceIndex | 0);
     const correct = (choiceIndex | 0) === (q.answer | 0);
+    st.pendingClear = correct;
     if (correct) {
       st.wrongCount = 0;
       setV(V.wrongCount, 0);
       $gameMessage.add(String(q.correctMsg || "答對了！"));
       if (q.explain) $gameMessage.add(String(q.explain));
-      BA.applyCorrectBattleMods();
-      st.pendingAdvance = true;
+      setV(V.troopTemp, (q.troopIdCorrect || 21) | 0);
       waitMessageThen(() => startBattle(q.troopIdCorrect || 21));
     } else {
       st.wrongCount = (st.wrongCount | 0) + 1;
       setV(V.wrongCount, st.wrongCount);
-      applyWrongHpPenalty(st.wrongCount);
+      applyWrongHpPenalty();
       $gameMessage.add(String(q.wrongMsg || "答錯了！"));
-      $gameMessage.add("正解：" + q.options[q.answer]);
+      const ans = (q.options || [])[q.answer];
+      if (ans != null) $gameMessage.add("正解：" + ans);
       if (q.explain) $gameMessage.add(String(q.explain));
-      BA.applyWrongBattleMods();
-      st.pendingAdvance = false;
+      setV(V.troopTemp, (q.troopIdWrong || 22) | 0);
       waitMessageThen(() => startBattle(q.troopIdWrong || 22));
     }
   }
 
   function startBattle(troopId) {
     const tid = Math.max(1, troopId | 0);
-    setV(V.troopTemp, tid);
-    BA._busy = true;
-    // canEscape=false, canLose=true（學院結界）
-    BattleManager.setup(tid, false, true);
-    BattleManager.setEventCallback((result) => {
-      // MZ：0=勝、1=逃、2=敗
-      afterBattle(result === 0);
+    BA.busy = true;
+    whenOnMap(() => {
+      BattleManager.setup(tid, false, true);
+      BattleManager.setEventCallback((result) => {
+        whenOnMap(() => afterBattle(result === 0));
+      });
+      SceneManager.push(Scene_Battle);
     });
-    SceneManager.push(Scene_Battle);
   }
 
   function afterBattle(won) {
-    const st = BA._state;
-    BA._busy = false;
+    const st = BA.state;
     ensureHpFloor();
-    if (!st) return;
-    if (!partyAlive()) ensureHpFloor();
-    if (!won) {
-      ensureHpFloor();
-      $gameMessage.add("學院結界保住了你……準備好後再挑戰同一題吧。");
-      setS(S.examActive, false);
+    if (!st) {
+      finishIdle();
       return;
     }
-    if (st.pendingAdvance) {
-      BA.grantCurrentReward();
-      st.index += 1;
-      st.wrongCount = 0;
-      setV(V.wrongCount, 0);
-      setV(V.teacherProgress, st.index);
-      st.pendingAdvance = false;
-      const list = BA._byTeacher[st.teacherId] || [];
-      if (st.index >= list.length) {
-        $gameMessage.add("十題全對！本科合格！");
-        waitMessageThen(() => {
-          BA.markTeacherComplete(st.teacherId);
-          $gameMessage.add("獲得學科徽章。集齊六枚可挑戰綜合考。");
-        });
-        return;
-      }
+    if (!won) {
+      $gameMessage.add("學院結界保住了你……準備好後再挑戰同一題吧。");
+      finishIdle();
+      return;
     }
-    waitMessageThen(askQuestion);
+    if (st.pendingClear) {
+      grantReward(st.question);
+      markTeacherCleared(st.teacherId);
+      eraseTeacherEvent(st.eventId);
+      $gameMessage.add("挑戰成功！這位老師離開教室了。");
+      const meta = teacherMeta(st.teacherId);
+      let sid = meta && meta.subjectId;
+      if (!sid && st.question) {
+        const sub = subjectMetaByName(st.question.subject);
+        if (sub) sid = sub.id;
+      }
+      if (sid) maybeGrantSubjectBadge(sid);
+      finishIdle();
+      return;
+    }
+    $gameMessage.add("戰鬥結束。要讓老師離開，必須答對才行。再挑戰一次吧！");
+    finishIdle();
   }
 
-  BA.startExam = function (teacherId) {
-    const tid = String(teacherId || "G1_CH");
-    if (BA._busy) {
-      $gameMessage.add("考試進行中……");
+  BA.startExam = function (teacherId, eventId) {
+    const tid = String(teacherId || "");
+    if (BA.busy) {
+      $gameMessage.add("挑戰進行中……");
+      return;
+    }
+    if (isTeacherCleared(tid)) {
+      $gameMessage.add("這位老師已經通過了。");
+      if (eventId) eraseTeacherEvent(eventId);
       return;
     }
     loadQuiz()
       .then(() => {
-        const list = BA._byTeacher[tid];
-        if (!list || !list.length) {
+        if (!BA.byTeacher[tid]) {
           $gameMessage.add("找不到題庫：" + tid);
           return;
         }
-        const sw = teacherSwitch(tid);
-        if (sw && getS(sw)) {
-          $gameMessage.add("你已經通過這位老師的考試了。");
-          return;
-        }
-        let startIndex = 0;
-        if (getV(V.teacher) === TEACHER_ORDER.indexOf(tid) + 1) {
-          startIndex = Math.max(0, Math.min(getV(V.teacherProgress), list.length - 1));
-        }
-        BA._state = {
-          teacherId: tid,
-          index: startIndex,
-          wrongCount: 0,
-          pendingAdvance: false,
-          question: null
-        };
         const meta = teacherMeta(tid);
         const name = (meta && meta.name) || "老師";
-        $gameMessage.add(name + "：考試開始！共 " + list.length + " 題。");
-        $gameMessage.add("答錯扣血（至少留1）並重考同題；答對後戰鬥勝利才進下一題。");
+        BA.state = {
+          teacherId: tid,
+          eventId: eventId | 0,
+          wrongCount: 0,
+          pendingClear: false,
+          question: null
+        };
+        BA.busy = true;
+        setS(S.examActive, true);
+        $gameMessage.add(name + "：一題挑戰開始！");
+        $gameMessage.add("答對並戰鬥勝利後我就會離開；答錯還能再試。");
         waitMessageThen(askQuestion);
       })
       .catch((err) => {
         console.error(err);
         $gameMessage.add("題庫讀取失敗：data/" + FOLDER + "/grade1.json");
+        finishIdle();
       });
   };
 
@@ -378,19 +388,12 @@
   };
 
   PluginManager.registerCommand(PLUGIN, "startExam", (args) => {
-    BA.startExam(String(args.teacherId || "G1_CH"));
-  });
-  PluginManager.registerCommand(PLUGIN, "readProgress", (args) => {
-    loadQuiz().then(() => {
-      const p = BA.readProgress(String(args.teacherId || "G1_CH"));
-      setV(V.teacherProgress, p.progress);
-      $gameMessage.add(p.cleared ? "已完成此科。" : "進度 " + p.progress + "/" + p.total);
-    });
-  });
-  PluginManager.registerCommand(PLUGIN, "applyCorrectBattle", () => BA.applyCorrectBattleMods());
-  PluginManager.registerCommand(PLUGIN, "applyWrongBattle", () => BA.applyWrongBattleMods());
-  PluginManager.registerCommand(PLUGIN, "grantReward", () => BA.grantCurrentReward());
-  PluginManager.registerCommand(PLUGIN, "markTeacherComplete", (args) => {
-    BA.markTeacherComplete(String(args.teacherId || "G1_CH"));
+    let eventId = 0;
+    try {
+      if ($gameMap && $gameMap._interpreter) {
+        eventId = $gameMap._interpreter.eventId();
+      }
+    } catch (e) {}
+    BA.startExam(String(args.teacherId || "G1_CH_01"), eventId);
   });
 })();

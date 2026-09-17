@@ -11,7 +11,7 @@
  * 正確沿用 makeUrl()（會加 .js），只附加 ?v= 版本號。
  */
 (() => {
-  const VER = "20260917f";
+  const VER = "20260917g";
   const _makeUrl = PluginManager.makeUrl;
   PluginManager.makeUrl = function (filename) {
     return _makeUrl.call(this, filename) + "?v=" + VER;

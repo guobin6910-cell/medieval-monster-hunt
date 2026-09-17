@@ -1,60 +1,477 @@
 {
   "grade": 1,
-  "title": "一年級題庫",
+  "title": "一年級題庫（一老師一題）",
+  "rule": "每間教室10位老師各出一題；答對並戰鬥勝利後老師消失；答錯需再挑戰。集齊該科10位後獲徽章。",
+  "subjects": [
+    {
+      "id": "CH",
+      "name": "國文",
+      "mapId": 4,
+      "clearSwitchId": 24,
+      "badgeItemId": 31,
+      "teacherIdPrefix": "G1_CH"
+    },
+    {
+      "id": "MA",
+      "name": "數學",
+      "mapId": 5,
+      "clearSwitchId": 25,
+      "badgeItemId": 32,
+      "teacherIdPrefix": "G1_MA"
+    },
+    {
+      "id": "HI",
+      "name": "歷史",
+      "mapId": 6,
+      "clearSwitchId": 26,
+      "badgeItemId": 33,
+      "teacherIdPrefix": "G1_HI"
+    },
+    {
+      "id": "GE",
+      "name": "地理",
+      "mapId": 7,
+      "clearSwitchId": 27,
+      "badgeItemId": 34,
+      "teacherIdPrefix": "G1_GE"
+    },
+    {
+      "id": "SC",
+      "name": "自然",
+      "mapId": 8,
+      "clearSwitchId": 28,
+      "badgeItemId": 35,
+      "teacherIdPrefix": "G1_SC"
+    },
+    {
+      "id": "MG",
+      "name": "魔法常識",
+      "mapId": 9,
+      "clearSwitchId": 29,
+      "badgeItemId": 36,
+      "teacherIdPrefix": "G1_MG"
+    }
+  ],
   "teachers": [
     {
-      "teacherId": "G1_CH",
-      "subject": "國文",
+      "teacherId": "G1_CH_01",
       "name": "賽琳娜老師",
-      "mapId": 4,
-      "badgeItemId": 31,
-      "clearSwitchId": 24,
-      "questions": 10
+      "subject": "國文",
+      "subjectId": "CH",
+      "mapId": 4
     },
     {
-      "teacherId": "G1_MA",
-      "subject": "數學",
+      "teacherId": "G1_CH_02",
+      "name": "艾蓮老師",
+      "subject": "國文",
+      "subjectId": "CH",
+      "mapId": 4
+    },
+    {
+      "teacherId": "G1_CH_03",
+      "name": "露娜老師",
+      "subject": "國文",
+      "subjectId": "CH",
+      "mapId": 4
+    },
+    {
+      "teacherId": "G1_CH_04",
+      "name": "米拉老師",
+      "subject": "國文",
+      "subjectId": "CH",
+      "mapId": 4
+    },
+    {
+      "teacherId": "G1_CH_05",
+      "name": "緹娜老師",
+      "subject": "國文",
+      "subjectId": "CH",
+      "mapId": 4
+    },
+    {
+      "teacherId": "G1_CH_06",
+      "name": "珂菈老師",
+      "subject": "國文",
+      "subjectId": "CH",
+      "mapId": 4
+    },
+    {
+      "teacherId": "G1_CH_07",
+      "name": "薇娜老師",
+      "subject": "國文",
+      "subjectId": "CH",
+      "mapId": 4
+    },
+    {
+      "teacherId": "G1_CH_08",
+      "name": "莉亞老師",
+      "subject": "國文",
+      "subjectId": "CH",
+      "mapId": 4
+    },
+    {
+      "teacherId": "G1_CH_09",
+      "name": "諾艾爾老師",
+      "subject": "國文",
+      "subjectId": "CH",
+      "mapId": 4
+    },
+    {
+      "teacherId": "G1_CH_10",
+      "name": "夏綠蒂老師",
+      "subject": "國文",
+      "subjectId": "CH",
+      "mapId": 4
+    },
+    {
+      "teacherId": "G1_MA_01",
       "name": "卡爾老師",
-      "mapId": 5,
-      "badgeItemId": 32,
-      "clearSwitchId": 25,
-      "questions": 10
+      "subject": "數學",
+      "subjectId": "MA",
+      "mapId": 5
     },
     {
-      "teacherId": "G1_HI",
-      "subject": "歷史",
+      "teacherId": "G1_MA_02",
+      "name": "雷恩老師",
+      "subject": "數學",
+      "subjectId": "MA",
+      "mapId": 5
+    },
+    {
+      "teacherId": "G1_MA_03",
+      "name": "蓋瑞老師",
+      "subject": "數學",
+      "subjectId": "MA",
+      "mapId": 5
+    },
+    {
+      "teacherId": "G1_MA_04",
+      "name": "歐文老師",
+      "subject": "數學",
+      "subjectId": "MA",
+      "mapId": 5
+    },
+    {
+      "teacherId": "G1_MA_05",
+      "name": "道格老師",
+      "subject": "數學",
+      "subjectId": "MA",
+      "mapId": 5
+    },
+    {
+      "teacherId": "G1_MA_06",
+      "name": "菲利老師",
+      "subject": "數學",
+      "subjectId": "MA",
+      "mapId": 5
+    },
+    {
+      "teacherId": "G1_MA_07",
+      "name": "馬修老師",
+      "subject": "數學",
+      "subjectId": "MA",
+      "mapId": 5
+    },
+    {
+      "teacherId": "G1_MA_08",
+      "name": "賽門老師",
+      "subject": "數學",
+      "subjectId": "MA",
+      "mapId": 5
+    },
+    {
+      "teacherId": "G1_MA_09",
+      "name": "布萊恩老師",
+      "subject": "數學",
+      "subjectId": "MA",
+      "mapId": 5
+    },
+    {
+      "teacherId": "G1_MA_10",
+      "name": "傑克老師",
+      "subject": "數學",
+      "subjectId": "MA",
+      "mapId": 5
+    },
+    {
+      "teacherId": "G1_HI_01",
       "name": "奧古斯特老師",
-      "mapId": 6,
-      "badgeItemId": 33,
-      "clearSwitchId": 26,
-      "questions": 10
+      "subject": "歷史",
+      "subjectId": "HI",
+      "mapId": 6
     },
     {
-      "teacherId": "G1_GE",
-      "subject": "地理",
+      "teacherId": "G1_HI_02",
+      "name": "赫曼老師",
+      "subject": "歷史",
+      "subjectId": "HI",
+      "mapId": 6
+    },
+    {
+      "teacherId": "G1_HI_03",
+      "name": "瓦爾特老師",
+      "subject": "歷史",
+      "subjectId": "HI",
+      "mapId": 6
+    },
+    {
+      "teacherId": "G1_HI_04",
+      "name": "伊格納老師",
+      "subject": "歷史",
+      "subjectId": "HI",
+      "mapId": 6
+    },
+    {
+      "teacherId": "G1_HI_05",
+      "name": "克勞斯老師",
+      "subject": "歷史",
+      "subjectId": "HI",
+      "mapId": 6
+    },
+    {
+      "teacherId": "G1_HI_06",
+      "name": "弗烈德老師",
+      "subject": "歷史",
+      "subjectId": "HI",
+      "mapId": 6
+    },
+    {
+      "teacherId": "G1_HI_07",
+      "name": "艾德華老師",
+      "subject": "歷史",
+      "subjectId": "HI",
+      "mapId": 6
+    },
+    {
+      "teacherId": "G1_HI_08",
+      "name": "羅倫老師",
+      "subject": "歷史",
+      "subjectId": "HI",
+      "mapId": 6
+    },
+    {
+      "teacherId": "G1_HI_09",
+      "name": "馬庫斯老師",
+      "subject": "歷史",
+      "subjectId": "HI",
+      "mapId": 6
+    },
+    {
+      "teacherId": "G1_HI_10",
+      "name": "西奧老師",
+      "subject": "歷史",
+      "subjectId": "HI",
+      "mapId": 6
+    },
+    {
+      "teacherId": "G1_GE_01",
       "name": "諾拉老師",
-      "mapId": 7,
-      "badgeItemId": 34,
-      "clearSwitchId": 27,
-      "questions": 10
+      "subject": "地理",
+      "subjectId": "GE",
+      "mapId": 7
     },
     {
-      "teacherId": "G1_SC",
-      "subject": "自然",
+      "teacherId": "G1_GE_02",
+      "name": "芙蕾雅老師",
+      "subject": "地理",
+      "subjectId": "GE",
+      "mapId": 7
+    },
+    {
+      "teacherId": "G1_GE_03",
+      "name": "伊莉絲老師",
+      "subject": "地理",
+      "subjectId": "GE",
+      "mapId": 7
+    },
+    {
+      "teacherId": "G1_GE_04",
+      "name": "瑪格老師",
+      "subject": "地理",
+      "subjectId": "GE",
+      "mapId": 7
+    },
+    {
+      "teacherId": "G1_GE_05",
+      "name": "海倫老師",
+      "subject": "地理",
+      "subjectId": "GE",
+      "mapId": 7
+    },
+    {
+      "teacherId": "G1_GE_06",
+      "name": "蓓雅老師",
+      "subject": "地理",
+      "subjectId": "GE",
+      "mapId": 7
+    },
+    {
+      "teacherId": "G1_GE_07",
+      "name": "克萊雅老師",
+      "subject": "地理",
+      "subjectId": "GE",
+      "mapId": 7
+    },
+    {
+      "teacherId": "G1_GE_08",
+      "name": "安雅老師",
+      "subject": "地理",
+      "subjectId": "GE",
+      "mapId": 7
+    },
+    {
+      "teacherId": "G1_GE_09",
+      "name": "索菲老師",
+      "subject": "地理",
+      "subjectId": "GE",
+      "mapId": 7
+    },
+    {
+      "teacherId": "G1_GE_10",
+      "name": "葛莉老師",
+      "subject": "地理",
+      "subjectId": "GE",
+      "mapId": 7
+    },
+    {
+      "teacherId": "G1_SC_01",
       "name": "雨果老師",
-      "mapId": 8,
-      "badgeItemId": 35,
-      "clearSwitchId": 28,
-      "questions": 10
+      "subject": "自然",
+      "subjectId": "SC",
+      "mapId": 8
     },
     {
-      "teacherId": "G1_MG",
-      "subject": "魔法常識",
+      "teacherId": "G1_SC_02",
+      "name": "亞倫老師",
+      "subject": "自然",
+      "subjectId": "SC",
+      "mapId": 8
+    },
+    {
+      "teacherId": "G1_SC_03",
+      "name": "奈特老師",
+      "subject": "自然",
+      "subjectId": "SC",
+      "mapId": 8
+    },
+    {
+      "teacherId": "G1_SC_04",
+      "name": "伊森老師",
+      "subject": "自然",
+      "subjectId": "SC",
+      "mapId": 8
+    },
+    {
+      "teacherId": "G1_SC_05",
+      "name": "柯爾老師",
+      "subject": "自然",
+      "subjectId": "SC",
+      "mapId": 8
+    },
+    {
+      "teacherId": "G1_SC_06",
+      "name": "萊恩老師",
+      "subject": "自然",
+      "subjectId": "SC",
+      "mapId": 8
+    },
+    {
+      "teacherId": "G1_SC_07",
+      "name": "斯科特老師",
+      "subject": "自然",
+      "subjectId": "SC",
+      "mapId": 8
+    },
+    {
+      "teacherId": "G1_SC_08",
+      "name": "菲爾老師",
+      "subject": "自然",
+      "subjectId": "SC",
+      "mapId": 8
+    },
+    {
+      "teacherId": "G1_SC_09",
+      "name": "戴文老師",
+      "subject": "自然",
+      "subjectId": "SC",
+      "mapId": 8
+    },
+    {
+      "teacherId": "G1_SC_10",
+      "name": "喬許老師",
+      "subject": "自然",
+      "subjectId": "SC",
+      "mapId": 8
+    },
+    {
+      "teacherId": "G1_MG_01",
       "name": "薇爾老師",
-      "mapId": 9,
-      "badgeItemId": 36,
-      "clearSwitchId": 29,
-      "questions": 10
+      "subject": "魔法常識",
+      "subjectId": "MG",
+      "mapId": 9
+    },
+    {
+      "teacherId": "G1_MG_02",
+      "name": "莫雅老師",
+      "subject": "魔法常識",
+      "subjectId": "MG",
+      "mapId": 9
+    },
+    {
+      "teacherId": "G1_MG_03",
+      "name": "瑟拉老師",
+      "subject": "魔法常識",
+      "subjectId": "MG",
+      "mapId": 9
+    },
+    {
+      "teacherId": "G1_MG_04",
+      "name": "伊芙老師",
+      "subject": "魔法常識",
+      "subjectId": "MG",
+      "mapId": 9
+    },
+    {
+      "teacherId": "G1_MG_05",
+      "name": "娜莎老師",
+      "subject": "魔法常識",
+      "subjectId": "MG",
+      "mapId": 9
+    },
+    {
+      "teacherId": "G1_MG_06",
+      "name": "璐琪老師",
+      "subject": "魔法常識",
+      "subjectId": "MG",
+      "mapId": 9
+    },
+    {
+      "teacherId": "G1_MG_07",
+      "name": "愛莎老師",
+      "subject": "魔法常識",
+      "subjectId": "MG",
+      "mapId": 9
+    },
+    {
+      "teacherId": "G1_MG_08",
+      "name": "優娜老師",
+      "subject": "魔法常識",
+      "subjectId": "MG",
+      "mapId": 9
+    },
+    {
+      "teacherId": "G1_MG_09",
+      "name": "莉絲老師",
+      "subject": "魔法常識",
+      "subjectId": "MG",
+      "mapId": 9
+    },
+    {
+      "teacherId": "G1_MG_10",
+      "name": "卡蓮老師",
+      "subject": "魔法常識",
+      "subjectId": "MG",
+      "mapId": 9
     }
   ],
   "questions": [
@@ -62,7 +479,7 @@
       "id": "G1-CH-001",
       "grade": 1,
       "subject": "國文",
-      "teacherId": "G1_CH",
+      "teacherId": "G1_CH_01",
       "question": "「小心翼翼」的意思最接近？",
       "options": [
         "粗心大意",
@@ -83,7 +500,7 @@
       "id": "G1-CH-002",
       "grade": 1,
       "subject": "國文",
-      "teacherId": "G1_CH",
+      "teacherId": "G1_CH_02",
       "question": "「畫蛇添足」比喻？",
       "options": [
         "恰到好處",
@@ -104,7 +521,7 @@
       "id": "G1-CH-003",
       "grade": 1,
       "subject": "國文",
-      "teacherId": "G1_CH",
+      "teacherId": "G1_CH_03",
       "question": "「春眠不覺曉」出自？",
       "options": [
         "靜夜思",
@@ -125,7 +542,7 @@
       "id": "G1-CH-004",
       "grade": 1,
       "subject": "國文",
-      "teacherId": "G1_CH",
+      "teacherId": "G1_CH_04",
       "question": "「三人行，必有我師焉」強調？",
       "options": [
         "獨自修行",
@@ -146,7 +563,7 @@
       "id": "G1-CH-005",
       "grade": 1,
       "subject": "國文",
-      "teacherId": "G1_CH",
+      "teacherId": "G1_CH_05",
       "question": "下列哪個是形聲字？",
       "options": [
         "火",
@@ -167,7 +584,7 @@
       "id": "G1-CH-006",
       "grade": 1,
       "subject": "國文",
-      "teacherId": "G1_CH",
+      "teacherId": "G1_CH_06",
       "question": "「青出於藍」比喻？",
       "options": [
         "青草很多",
@@ -188,7 +605,7 @@
       "id": "G1-CH-007",
       "grade": 1,
       "subject": "國文",
-      "teacherId": "G1_CH",
+      "teacherId": "G1_CH_07",
       "question": "標點符號中，表示疑問的是？",
       "options": [
         "。",
@@ -209,7 +626,7 @@
       "id": "G1-CH-008",
       "grade": 1,
       "subject": "國文",
-      "teacherId": "G1_CH",
+      "teacherId": "G1_CH_08",
       "question": "「靜夜思」的作者是？",
       "options": [
         "杜甫",
@@ -230,7 +647,7 @@
       "id": "G1-CH-009",
       "grade": 1,
       "subject": "國文",
-      "teacherId": "G1_CH",
+      "teacherId": "G1_CH_09",
       "question": "「一石二鳥」類似成語？",
       "options": [
         "一箭雙鵰",
@@ -251,7 +668,7 @@
       "id": "G1-CH-010",
       "grade": 1,
       "subject": "國文",
-      "teacherId": "G1_CH",
+      "teacherId": "G1_CH_10",
       "question": "作文開頭最不宜？",
       "options": [
         "點出主題",
@@ -272,7 +689,7 @@
       "id": "G1-MA-001",
       "grade": 1,
       "subject": "數學",
-      "teacherId": "G1_MA",
+      "teacherId": "G1_MA_01",
       "question": "12 × 7 = ?",
       "options": [
         "74",
@@ -293,7 +710,7 @@
       "id": "G1-MA-002",
       "grade": 1,
       "subject": "數學",
-      "teacherId": "G1_MA",
+      "teacherId": "G1_MA_02",
       "question": "一個直角是幾度？",
       "options": [
         "45",
@@ -314,7 +731,7 @@
       "id": "G1-MA-003",
       "grade": 1,
       "subject": "數學",
-      "teacherId": "G1_MA",
+      "teacherId": "G1_MA_03",
       "question": "1/2 + 1/4 = ?",
       "options": [
         "1/6",
@@ -335,7 +752,7 @@
       "id": "G1-MA-004",
       "grade": 1,
       "subject": "數學",
-      "teacherId": "G1_MA",
+      "teacherId": "G1_MA_04",
       "question": "邊長 5 的正方形面積？",
       "options": [
         "10",
@@ -356,7 +773,7 @@
       "id": "G1-MA-005",
       "grade": 1,
       "subject": "數學",
-      "teacherId": "G1_MA",
+      "teacherId": "G1_MA_05",
       "question": "質數是？",
       "options": [
         "1",
@@ -377,7 +794,7 @@
       "id": "G1-MA-006",
       "grade": 1,
       "subject": "數學",
-      "teacherId": "G1_MA",
+      "teacherId": "G1_MA_06",
       "question": "3 小時 = 多少分鐘？",
       "options": [
         "120",
@@ -398,7 +815,7 @@
       "id": "G1-MA-007",
       "grade": 1,
       "subject": "數學",
-      "teacherId": "G1_MA",
+      "teacherId": "G1_MA_07",
       "question": "圓周率約為？",
       "options": [
         "2.14",
@@ -419,7 +836,7 @@
       "id": "G1-MA-008",
       "grade": 1,
       "subject": "數學",
-      "teacherId": "G1_MA",
+      "teacherId": "G1_MA_08",
       "question": "15 的 20% 是？",
       "options": [
         "2",
@@ -440,7 +857,7 @@
       "id": "G1-MA-009",
       "grade": 1,
       "subject": "數學",
-      "teacherId": "G1_MA",
+      "teacherId": "G1_MA_09",
       "question": "二等邊三角形至少有？",
       "options": [
         "兩邊相等",
@@ -461,7 +878,7 @@
       "id": "G1-MA-010",
       "grade": 1,
       "subject": "數學",
-      "teacherId": "G1_MA",
+      "teacherId": "G1_MA_10",
       "question": "平均數：(4,6,8) 的平均？",
       "options": [
         "5",
@@ -482,7 +899,7 @@
       "id": "G1-HI-001",
       "grade": 1,
       "subject": "歷史",
-      "teacherId": "G1_HI",
+      "teacherId": "G1_HI_01",
       "question": "台灣昔日被稱作？",
       "options": [
         "芙蓉國",
@@ -503,7 +920,7 @@
       "id": "G1-HI-002",
       "grade": 1,
       "subject": "歷史",
-      "teacherId": "G1_HI",
+      "teacherId": "G1_HI_02",
       "question": "鄭成功驅逐的是？",
       "options": [
         "西班牙人",
@@ -524,7 +941,7 @@
       "id": "G1-HI-003",
       "grade": 1,
       "subject": "歷史",
-      "teacherId": "G1_HI",
+      "teacherId": "G1_HI_03",
       "question": "清朝將台灣收入版圖約在？",
       "options": [
         "1683",
@@ -545,7 +962,7 @@
       "id": "G1-HI-004",
       "grade": 1,
       "subject": "歷史",
-      "teacherId": "G1_HI",
+      "teacherId": "G1_HI_04",
       "question": "乙未戰爭與哪一條約相關？",
       "options": [
         "南京條約",
@@ -566,7 +983,7 @@
       "id": "G1-HI-005",
       "grade": 1,
       "subject": "歷史",
-      "teacherId": "G1_HI",
+      "teacherId": "G1_HI_05",
       "question": "日治時期推動的重要建設？",
       "options": [
         "萬里長城",
@@ -587,7 +1004,7 @@
       "id": "G1-HI-006",
       "grade": 1,
       "subject": "歷史",
-      "teacherId": "G1_HI",
+      "teacherId": "G1_HI_06",
       "question": "二二八事件發生於？",
       "options": [
         "1945",
@@ -608,7 +1025,7 @@
       "id": "G1-HI-007",
       "grade": 1,
       "subject": "歷史",
-      "teacherId": "G1_HI",
+      "teacherId": "G1_HI_07",
       "question": "解嚴年份是？",
       "options": [
         "1977",
@@ -629,7 +1046,7 @@
       "id": "G1-HI-008",
       "grade": 1,
       "subject": "歷史",
-      "teacherId": "G1_HI",
+      "teacherId": "G1_HI_08",
       "question": "台灣第一位民選總統產生於？",
       "options": [
         "1986",
@@ -650,7 +1067,7 @@
       "id": "G1-HI-009",
       "grade": 1,
       "subject": "歷史",
-      "teacherId": "G1_HI",
+      "teacherId": "G1_HI_09",
       "question": "原住民族不是外來移民族群，此敘述？",
       "options": [
         "正確",
@@ -671,7 +1088,7 @@
       "id": "G1-HI-010",
       "grade": 1,
       "subject": "歷史",
-      "teacherId": "G1_HI",
+      "teacherId": "G1_HI_10",
       "question": "辛亥革命推翻的朝代？",
       "options": [
         "唐朝",
@@ -692,7 +1109,7 @@
       "id": "G1-GE-001",
       "grade": 1,
       "subject": "地理",
-      "teacherId": "G1_GE",
+      "teacherId": "G1_GE_01",
       "question": "台灣本島形狀近似？",
       "options": [
         "圓形",
@@ -713,7 +1130,7 @@
       "id": "G1-GE-002",
       "grade": 1,
       "subject": "地理",
-      "teacherId": "G1_GE",
+      "teacherId": "G1_GE_02",
       "question": "台灣最高峰是？",
       "options": [
         "阿里山",
@@ -734,7 +1151,7 @@
       "id": "G1-GE-003",
       "grade": 1,
       "subject": "地理",
-      "teacherId": "G1_GE",
+      "teacherId": "G1_GE_03",
       "question": "台灣海峽分隔台灣與？",
       "options": [
         "日本",
@@ -755,7 +1172,7 @@
       "id": "G1-GE-004",
       "grade": 1,
       "subject": "地理",
-      "teacherId": "G1_GE",
+      "teacherId": "G1_GE_04",
       "question": "台北位於台灣？",
       "options": [
         "南部",
@@ -776,7 +1193,7 @@
       "id": "G1-GE-005",
       "grade": 1,
       "subject": "地理",
-      "teacherId": "G1_GE",
+      "teacherId": "G1_GE_05",
       "question": "中央山脈大致走向？",
       "options": [
         "東西向",
@@ -797,7 +1214,7 @@
       "id": "G1-GE-006",
       "grade": 1,
       "subject": "地理",
-      "teacherId": "G1_GE",
+      "teacherId": "G1_GE_06",
       "question": "台灣主要氣候帶？",
       "options": [
         "寒帶",
@@ -818,7 +1235,7 @@
       "id": "G1-GE-007",
       "grade": 1,
       "subject": "地理",
-      "teacherId": "G1_GE",
+      "teacherId": "G1_GE_07",
       "question": "澎湖群島位於？",
       "options": [
         "台灣東方",
@@ -839,7 +1256,7 @@
       "id": "G1-GE-008",
       "grade": 1,
       "subject": "地理",
-      "teacherId": "G1_GE",
+      "teacherId": "G1_GE_08",
       "question": "板塊交界使台灣多？",
       "options": [
         "沙漠",
@@ -860,7 +1277,7 @@
       "id": "G1-GE-009",
       "grade": 1,
       "subject": "地理",
-      "teacherId": "G1_GE",
+      "teacherId": "G1_GE_09",
       "question": "淡水河主要流經？",
       "options": [
         "高雄",
@@ -881,7 +1298,7 @@
       "id": "G1-GE-010",
       "grade": 1,
       "subject": "地理",
-      "teacherId": "G1_GE",
+      "teacherId": "G1_GE_10",
       "question": "北回歸線通過台灣？",
       "options": [
         "北部",
@@ -902,7 +1319,7 @@
       "id": "G1-SC-001",
       "grade": 1,
       "subject": "自然",
-      "teacherId": "G1_SC",
+      "teacherId": "G1_SC_01",
       "question": "植物行光合作用需要？",
       "options": [
         "只有黑暗",
@@ -923,7 +1340,7 @@
       "id": "G1-SC-002",
       "grade": 1,
       "subject": "自然",
-      "teacherId": "G1_SC",
+      "teacherId": "G1_SC_02",
       "question": "水的沸點在一大氣壓約？",
       "options": [
         "50°C",
@@ -944,7 +1361,7 @@
       "id": "G1-SC-003",
       "grade": 1,
       "subject": "自然",
-      "teacherId": "G1_SC",
+      "teacherId": "G1_SC_03",
       "question": "地球繞太陽一圈約？",
       "options": [
         "一天",
@@ -965,7 +1382,7 @@
       "id": "G1-SC-004",
       "grade": 1,
       "subject": "自然",
-      "teacherId": "G1_SC",
+      "teacherId": "G1_SC_04",
       "question": "磁力最明顯的金屬？",
       "options": [
         "銅",
@@ -986,7 +1403,7 @@
       "id": "G1-SC-005",
       "grade": 1,
       "subject": "自然",
-      "teacherId": "G1_SC",
+      "teacherId": "G1_SC_05",
       "question": "聲音在哪裡幾乎無法傳播？",
       "options": [
         "水中",
@@ -1007,7 +1424,7 @@
       "id": "G1-SC-006",
       "grade": 1,
       "subject": "自然",
-      "teacherId": "G1_SC",
+      "teacherId": "G1_SC_06",
       "question": "人體主要呼吸器官？",
       "options": [
         "胃",
@@ -1028,7 +1445,7 @@
       "id": "G1-SC-007",
       "grade": 1,
       "subject": "自然",
-      "teacherId": "G1_SC",
+      "teacherId": "G1_SC_07",
       "question": "彩虹常見成因？",
       "options": [
         "地震",
@@ -1049,7 +1466,7 @@
       "id": "G1-SC-008",
       "grade": 1,
       "subject": "自然",
-      "teacherId": "G1_SC",
+      "teacherId": "G1_SC_08",
       "question": "電池提供的是？",
       "options": [
         "只有熱",
@@ -1070,7 +1487,7 @@
       "id": "G1-SC-009",
       "grade": 1,
       "subject": "自然",
-      "teacherId": "G1_SC",
+      "teacherId": "G1_SC_09",
       "question": "化石多形成於？",
       "options": [
         "雲層",
@@ -1091,7 +1508,7 @@
       "id": "G1-SC-010",
       "grade": 1,
       "subject": "自然",
-      "teacherId": "G1_SC",
+      "teacherId": "G1_SC_10",
       "question": "月亮本身會發光嗎？",
       "options": [
         "會",
@@ -1112,7 +1529,7 @@
       "id": "G1-MG-001",
       "grade": 1,
       "subject": "魔法常識",
-      "teacherId": "G1_MG",
+      "teacherId": "G1_MG_01",
       "question": "魔法的基本三要素常指？",
       "options": [
         "劍盾靴",
@@ -1133,7 +1550,7 @@
       "id": "G1-MG-002",
       "grade": 1,
       "subject": "魔法常識",
-      "teacherId": "G1_MG",
+      "teacherId": "G1_MG_02",
       "question": "火屬性魔法最怕？",
       "options": [
         "木",
@@ -1154,7 +1571,7 @@
       "id": "G1-MG-003",
       "grade": 1,
       "subject": "魔法常識",
-      "teacherId": "G1_MG",
+      "teacherId": "G1_MG_03",
       "question": "魔力耗盡時應該？",
       "options": [
         "硬撐狂轟",
@@ -1175,7 +1592,7 @@
       "id": "G1-MG-004",
       "grade": 1,
       "subject": "魔法常識",
-      "teacherId": "G1_MG",
+      "teacherId": "G1_MG_04",
       "question": "初學者練習場地宜選？",
       "options": [
         "擁擠市集",
@@ -1196,7 +1613,7 @@
       "id": "G1-MG-005",
       "grade": 1,
       "subject": "魔法常識",
-      "teacherId": "G1_MG",
+      "teacherId": "G1_MG_05",
       "question": "治癒魔法主要恢復？",
       "options": [
         "金錢",
@@ -1217,7 +1634,7 @@
       "id": "G1-MG-006",
       "grade": 1,
       "subject": "魔法常識",
-      "teacherId": "G1_MG",
+      "teacherId": "G1_MG_06",
       "question": "魔導書最重要的是？",
       "options": [
         "封面漂亮",
@@ -1238,7 +1655,7 @@
       "id": "G1-MG-007",
       "grade": 1,
       "subject": "魔法常識",
-      "teacherId": "G1_MG",
+      "teacherId": "G1_MG_07",
       "question": "結界的作用？",
       "options": [
         "煮飯",
@@ -1259,7 +1676,7 @@
       "id": "G1-MG-008",
       "grade": 1,
       "subject": "魔法常識",
-      "teacherId": "G1_MG",
+      "teacherId": "G1_MG_08",
       "question": "屬性相克記不住時？",
       "options": [
         "隨便亂放",
@@ -1280,7 +1697,7 @@
       "id": "G1-MG-009",
       "grade": 1,
       "subject": "魔法常識",
-      "teacherId": "G1_MG",
+      "teacherId": "G1_MG_09",
       "question": "與魔物交涉前應？",
       "options": [
         "先砸暈再說",
@@ -1301,7 +1718,7 @@
       "id": "G1-MG-010",
       "grade": 1,
       "subject": "魔法常識",
-      "teacherId": "G1_MG",
+      "teacherId": "G1_MG_10",
       "question": "學院考試與實戰的關係？",
       "options": [
         "完全無關",
