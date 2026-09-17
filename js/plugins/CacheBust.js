@@ -3,20 +3,17 @@
 //=============================================================================
 /*:
  * @target MZ
- * @plugindesc 強制插件重新下載（避免手機快取）v1.1
+ * @plugindesc 強制插件重新下載（避免手機快取）v1.2
  * @author BraveAcademy
+ *
+ * @help
+ * 必須放在插件列表最上方。
+ * 正確沿用 makeUrl()（會加 .js），只附加 ?v= 版本號。
  */
 (() => {
-  const VER = "20260917d";
-  PluginManager.loadScript = function (filename) {
-    const url = this._path + filename + "?v=" + VER;
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = url;
-    script.async = false;
-    script._url = url;
-    script.addEventListener("load", this.onLoad.bind(this));
-    script.addEventListener("error", this.onError.bind(this));
-    document.body.appendChild(script);
+  const VER = "20260917e";
+  const _makeUrl = PluginManager.makeUrl;
+  PluginManager.makeUrl = function (filename) {
+    return _makeUrl.call(this, filename) + "?v=" + VER;
   };
 })();
