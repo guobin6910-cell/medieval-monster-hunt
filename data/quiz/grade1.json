@@ -1,0 +1,1692 @@
+{
+  "grade": 1,
+  "title": "一年級題庫",
+  "teachers": [
+    {
+      "teacherId": "G1_CH",
+      "subject": "國文",
+      "name": "賽琳娜老師",
+      "mapId": 4,
+      "badgeItemId": 61,
+      "clearSwitchId": 24,
+      "progressVarId": 41,
+      "questions": [
+        {
+          "id": "G1_CH-001",
+          "question": "下列哪一個成語形容做事非常謹慎？",
+          "options": [
+            "粗心大意",
+            "小心翼翼",
+            "狼吞虎嚥",
+            "走馬看花"
+          ],
+          "answer": 1,
+          "explain": "小心翼翼形容舉動十分謹慎，絲毫不敢疏忽。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：小心翼翼。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_CH-002",
+          "question": "「一石二鳥」的意思最接近？",
+          "options": [
+            "很會丟石頭",
+            "一舉兩得",
+            "兩隻鳥吵架",
+            "石頭很多"
+          ],
+          "answer": 1,
+          "explain": "比喻做一件事同時得到兩種好處。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：一舉兩得。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_CH-003",
+          "question": "下列哪個是疑問句？",
+          "options": [
+            "今天真好。",
+            "你吃過飯了嗎？",
+            "快跑！",
+            "真漂亮啊！"
+          ],
+          "answer": 1,
+          "explain": "疑問句句末常用問號，用來提出問題。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：你吃過飯了嗎？。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_CH-004",
+          "question": "「月亮像銀盤」使用哪種修辭？",
+          "options": [
+            "排比",
+            "譬喻",
+            "設問",
+            "反問"
+          ],
+          "answer": 1,
+          "explain": "用「像」把月亮比成銀盤，屬於譬喻（明喻）。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：譬喻。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_CH-005",
+          "question": "信封寫給師長，收件人姓名下常加？",
+          "options": [
+            "親愛的",
+            "鈞啟",
+            "敬上",
+            "哈哈"
+          ],
+          "answer": 1,
+          "explain": "「鈞啟」是對長輩收件的敬語。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：鈞啟。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_CH-006",
+          "question": "「栩栩如生」通常用來形容？",
+          "options": [
+            "食物很好吃",
+            "描寫或雕刻非常生動",
+            "跑得很快",
+            "聲音很大"
+          ],
+          "answer": 1,
+          "explain": "形容藝術描寫或造形非常生動逼真。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：描寫或雕刻非常生動。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_CH-007",
+          "question": "下列何者為「因果」關係的連接詞？",
+          "options": [
+            "但是",
+            "所以",
+            "或者",
+            "以及"
+          ],
+          "answer": 1,
+          "explain": "「所以」用來連接原因與結果。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：所以。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_CH-008",
+          "question": "詩句中「床前明月光」的「明」意思是？",
+          "options": [
+            "明天",
+            "明亮",
+            "明白",
+            "名聲"
+          ],
+          "answer": 1,
+          "explain": "此處「明」指明亮的月光。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：明亮。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_CH-009",
+          "question": "「閱讀課文時先看標題」主要是為了？",
+          "options": [
+            "浪費時間",
+            "掌握文章主題方向",
+            "練習寫字",
+            "計算字數"
+          ],
+          "answer": 1,
+          "explain": "標題能幫助預判主題與內容方向。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：掌握文章主題方向。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_CH-010",
+          "question": "下列哪個成語比喻「只看表面、不深入」？",
+          "options": [
+            "走馬看花",
+            "一心一意",
+            "精益求精",
+            "實事求是"
+          ],
+          "answer": 0,
+          "explain": "走馬看花比喻觀察不仔細、不夠深入。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：走馬看花。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "teacherId": "G1_MA",
+      "subject": "數學",
+      "name": "卡爾老師",
+      "mapId": 5,
+      "badgeItemId": 62,
+      "clearSwitchId": 25,
+      "progressVarId": 42,
+      "questions": [
+        {
+          "id": "G1_MA-001",
+          "question": "長方形長 8、寬 5，面積是？",
+          "options": [
+            "13",
+            "26",
+            "40",
+            "80"
+          ],
+          "answer": 2,
+          "explain": "面積＝長×寬＝8×5＝40。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 2,
+          "troopIdWrong": 7,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：40。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MA-002",
+          "question": "1/2 + 1/4 ＝？",
+          "options": [
+            "1/6",
+            "2/6",
+            "3/4",
+            "1/8"
+          ],
+          "answer": 2,
+          "explain": "通分後 2/4+1/4＝3/4。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 2,
+          "troopIdWrong": 7,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：3/4。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MA-003",
+          "question": "3/4 的小數是？",
+          "options": [
+            "0.25",
+            "0.5",
+            "0.75",
+            "1.25"
+          ],
+          "answer": 2,
+          "explain": "3÷4＝0.75。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 2,
+          "troopIdWrong": 7,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：0.75。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MA-004",
+          "question": "時速 60 公里，行駛 2.5 小時路程？",
+          "options": [
+            "120",
+            "150",
+            "90",
+            "180"
+          ],
+          "answer": 1,
+          "explain": "路程＝速率×時間＝60×2.5＝150。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 2,
+          "troopIdWrong": 7,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：150。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MA-005",
+          "question": "一個數字除以 0 會怎樣？",
+          "options": [
+            "等於 0",
+            "等於 1",
+            "沒有意義／無法計算",
+            "等於該數"
+          ],
+          "answer": 2,
+          "explain": "除數不能為 0。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 2,
+          "troopIdWrong": 7,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：沒有意義／無法計算。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MA-006",
+          "question": "直角是多少度？",
+          "options": [
+            "45",
+            "60",
+            "90",
+            "180"
+          ],
+          "answer": 2,
+          "explain": "直角定義為 90 度。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 2,
+          "troopIdWrong": 7,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：90。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MA-007",
+          "question": "12 的因數不包括？",
+          "options": [
+            "1",
+            "2",
+            "5",
+            "6"
+          ],
+          "answer": 2,
+          "explain": "5 不能整除 12。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 2,
+          "troopIdWrong": 7,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：5。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MA-008",
+          "question": "整數 7 是？",
+          "options": [
+            "偶數",
+            "質數",
+            "合數",
+            "小數"
+          ],
+          "answer": 1,
+          "explain": "7 的正因數只有 1 與 7，是質數。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 2,
+          "troopIdWrong": 7,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：質數。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MA-009",
+          "question": "百分率 25% 等於？",
+          "options": [
+            "1/2",
+            "1/4",
+            "1/5",
+            "1/3"
+          ],
+          "answer": 1,
+          "explain": "25%＝25/100＝1/4。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 2,
+          "troopIdWrong": 7,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：1/4。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MA-010",
+          "question": "三角形內角和是？",
+          "options": [
+            "90°",
+            "120°",
+            "180°",
+            "360°"
+          ],
+          "answer": 2,
+          "explain": "平面三角形內角和為 180°。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 2,
+          "troopIdWrong": 7,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：180°。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "teacherId": "G1_HI",
+      "subject": "歷史",
+      "name": "奧古斯特老師",
+      "mapId": 6,
+      "badgeItemId": 63,
+      "clearSwitchId": 26,
+      "progressVarId": 43,
+      "questions": [
+        {
+          "id": "G1_HI-001",
+          "question": "1662 年鄭成功攻下的荷蘭據點是？",
+          "options": [
+            "淡水紅毛城",
+            "熱蘭遮城",
+            "基隆社寮",
+            "澎湖城"
+          ],
+          "answer": 1,
+          "explain": "鄭成功攻下熱蘭遮城（今安平一帶）。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 3,
+          "troopIdWrong": 8,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：熱蘭遮城。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_HI-002",
+          "question": "1895 年清廷把台灣割讓給？",
+          "options": [
+            "西班牙",
+            "日本",
+            "英國",
+            "法國"
+          ],
+          "answer": 1,
+          "explain": "馬關條約將台灣割讓給日本。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 3,
+          "troopIdWrong": 8,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：日本。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_HI-003",
+          "question": "二戰結束、台灣光復大約在？",
+          "options": [
+            "1911",
+            "1945",
+            "1971",
+            "1987"
+          ],
+          "answer": 1,
+          "explain": "1945 年日本投降，台灣光復。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 3,
+          "troopIdWrong": 8,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：1945。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_HI-004",
+          "question": "秦始皇最著名的統一文字政策是？",
+          "options": [
+            "書同文",
+            "車同軌以外無關",
+            "只統一貨幣",
+            "只修長城"
+          ],
+          "answer": 0,
+          "explain": "書同文指統一文字。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 3,
+          "troopIdWrong": 8,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：書同文。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_HI-005",
+          "question": "中世紀歐洲騎士常效忠於？",
+          "options": [
+            "無主孤島",
+            "封建領主／國王",
+            "現代公司",
+            "網路論壇"
+          ],
+          "answer": 1,
+          "explain": "騎士制度建立在封建效忠關係上。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 3,
+          "troopIdWrong": 8,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：封建領主／國王。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_HI-006",
+          "question": "「文藝復興」起源於？",
+          "options": [
+            "英國",
+            "義大利",
+            "日本",
+            "埃及"
+          ],
+          "answer": 1,
+          "explain": "文藝復興興起於義大利。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 3,
+          "troopIdWrong": 8,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：義大利。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_HI-007",
+          "question": "工業革命首先大規模發生在？",
+          "options": [
+            "中國",
+            "英國",
+            "巴西",
+            "冰島"
+          ],
+          "answer": 1,
+          "explain": "18 世紀英國率先工業革命。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 3,
+          "troopIdWrong": 8,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：英國。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_HI-008",
+          "question": "金字塔主要建於？",
+          "options": [
+            "古埃及",
+            "古中國",
+            "古希臘",
+            "維京"
+          ],
+          "answer": 0,
+          "explain": "金字塔是古埃及代表性建築。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 3,
+          "troopIdWrong": 8,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：古埃及。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_HI-009",
+          "question": "「絲綢之路」主要連接？",
+          "options": [
+            "南北極",
+            "東亞與歐陸貿易路線",
+            "只有日本國內",
+            "只有美洲"
+          ],
+          "answer": 1,
+          "explain": "絲路是歐亞大陸重要商貿通道。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 3,
+          "troopIdWrong": 8,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：東亞與歐陸貿易路線。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_HI-010",
+          "question": "勇者學院創立的傳說目的是？",
+          "options": [
+            "只練劍",
+            "培養會思考的正式勇者",
+            "只學烹飪",
+            "淘汰所有學生"
+          ],
+          "answer": 1,
+          "explain": "學院相信真正勇者要會思考與學習。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 3,
+          "troopIdWrong": 8,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：培養會思考的正式勇者。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "teacherId": "G1_GE",
+      "subject": "地理",
+      "name": "諾拉老師",
+      "mapId": 7,
+      "badgeItemId": 64,
+      "clearSwitchId": 27,
+      "progressVarId": 44,
+      "questions": [
+        {
+          "id": "G1_GE-001",
+          "question": "台灣本島東方外海所臨的大洋是？",
+          "options": [
+            "大西洋",
+            "太平洋",
+            "印度洋",
+            "北冰洋"
+          ],
+          "answer": 1,
+          "explain": "台灣東側面向太平洋。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 4,
+          "troopIdWrong": 9,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：太平洋。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_GE-002",
+          "question": "台灣海峽位於台灣與哪裡之間？",
+          "options": [
+            "日本",
+            "中國大陸",
+            "澳洲",
+            "美國"
+          ],
+          "answer": 1,
+          "explain": "台灣海峽介於台灣與中國大陸之間。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 4,
+          "troopIdWrong": 9,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：中國大陸。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_GE-003",
+          "question": "赤道附近氣候多半較？",
+          "options": [
+            "酷寒",
+            "炎熱",
+            "永遠下雪",
+            "沒有白天"
+          ],
+          "answer": 1,
+          "explain": "赤道地區年均溫較高。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 4,
+          "troopIdWrong": 9,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：炎熱。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_GE-004",
+          "question": "地圖上用來辨方向的工具常是？",
+          "options": [
+            "橡皮擦",
+            "指南針",
+            "鍋子",
+            "球棒"
+          ],
+          "answer": 1,
+          "explain": "指南針可指示南北方位。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 4,
+          "troopIdWrong": 9,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：指南針。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_GE-005",
+          "question": "河流由高處往低處流，最終常注入？",
+          "options": [
+            "高山",
+            "海洋或湖泊",
+            "雲朵",
+            "地心火焰"
+          ],
+          "answer": 1,
+          "explain": "河水多匯入湖海。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 4,
+          "troopIdWrong": 9,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：海洋或湖泊。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_GE-006",
+          "question": "島嶼的定義最接近？",
+          "options": [
+            "完全沒有水",
+            "四面環水的陸地",
+            "只有沙漠",
+            "只有城市"
+          ],
+          "answer": 1,
+          "explain": "島嶼是四周被水包圍的陸地。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 4,
+          "troopIdWrong": 9,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：四面環水的陸地。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_GE-007",
+          "question": "台灣位於板塊活動帶，因此較常有？",
+          "options": [
+            "極光",
+            "地震",
+            "極夜",
+            "沙漠雨"
+          ],
+          "answer": 1,
+          "explain": "板塊交界使地震較頻繁。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 4,
+          "troopIdWrong": 9,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：地震。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_GE-008",
+          "question": "等高線愈密表示？",
+          "options": [
+            "地勢愈平",
+            "坡度愈陡",
+            "一定是海",
+            "一定是都市"
+          ],
+          "answer": 1,
+          "explain": "等高線密集代表坡度陡。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 4,
+          "troopIdWrong": 9,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：坡度愈陡。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_GE-009",
+          "question": "季節風／季風主要與什麼有關？",
+          "options": [
+            "月相",
+            "海陸熱力差異造成的風向變化",
+            "只有火山",
+            "只有潮汐"
+          ],
+          "answer": 1,
+          "explain": "季風受海陸溫差影響。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 4,
+          "troopIdWrong": 9,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：海陸熱力差異造成的風向變化。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_GE-010",
+          "question": "「首都」通常是指？",
+          "options": [
+            "最大購物中心",
+            "國家的政治中心城市",
+            "任意村莊",
+            "只有港口"
+          ],
+          "answer": 1,
+          "explain": "首都是一國的政治中心。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 4,
+          "troopIdWrong": 9,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：國家的政治中心城市。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "teacherId": "G1_SC",
+      "subject": "自然",
+      "name": "雨果老師",
+      "mapId": 8,
+      "badgeItemId": 65,
+      "clearSwitchId": 28,
+      "progressVarId": 45,
+      "questions": [
+        {
+          "id": "G1_SC-001",
+          "question": "水在標準大氣壓下沸騰約？",
+          "options": [
+            "0℃",
+            "50℃",
+            "100℃",
+            "200℃"
+          ],
+          "answer": 2,
+          "explain": "標準大氣壓下沸點約 100℃。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 5,
+          "troopIdWrong": 10,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：100℃。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_SC-002",
+          "question": "植物在食物鏈中多半是？",
+          "options": [
+            "生產者",
+            "消費者",
+            "分解者",
+            "寄生者"
+          ],
+          "answer": 0,
+          "explain": "植物可行光合作用，屬生產者。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 5,
+          "troopIdWrong": 10,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：生產者。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_SC-003",
+          "question": "地球上生物生存必需的氣體之一是？",
+          "options": [
+            "只有氦",
+            "氧氣",
+            "只有氡",
+            "只有氖"
+          ],
+          "answer": 1,
+          "explain": "多數生物呼吸需要氧氣。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 5,
+          "troopIdWrong": 10,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：氧氣。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_SC-004",
+          "question": "磁鐵會吸引？",
+          "options": [
+            "木頭",
+            "鐵等磁性金屬",
+            "紙張",
+            "棉花"
+          ],
+          "answer": 1,
+          "explain": "磁鐵對鐵等磁性物質有吸力。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 5,
+          "troopIdWrong": 10,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：鐵等磁性金屬。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_SC-005",
+          "question": "固體、液體、氣體是物質的？",
+          "options": [
+            "味道",
+            "三態",
+            "顏色代號",
+            "學號"
+          ],
+          "answer": 1,
+          "explain": "物質常見三態：固、液、氣。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 5,
+          "troopIdWrong": 10,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：三態。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_SC-006",
+          "question": "影子的形成是因為光？",
+          "options": [
+            "會轉彎消失",
+            "直線傳播且被物體遮擋",
+            "沒有方向",
+            "只在晚上存在"
+          ],
+          "answer": 1,
+          "explain": "光直線前進，被遮擋就產生影。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 5,
+          "troopIdWrong": 10,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：直線傳播且被物體遮擋。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_SC-007",
+          "question": "人體主要的呼吸器官是？",
+          "options": [
+            "胃",
+            "肺",
+            "皮膚而已",
+            "頭髮"
+          ],
+          "answer": 1,
+          "explain": "肺是主要呼吸器官。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 5,
+          "troopIdWrong": 10,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：肺。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_SC-008",
+          "question": "電池提供電路什麼？",
+          "options": [
+            "只有聲音",
+            "電能",
+            "只有香味",
+            "只有溫度計"
+          ],
+          "answer": 1,
+          "explain": "電池是電能來源。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 5,
+          "troopIdWrong": 10,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：電能。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_SC-009",
+          "question": "昆蟲通常有幾隻腳？",
+          "options": [
+            "4",
+            "6",
+            "8",
+            "10"
+          ],
+          "answer": 1,
+          "explain": "昆蟲成蟲一般有六足。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 5,
+          "troopIdWrong": 10,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：6。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_SC-010",
+          "question": "月亮本身不發光，我們看見月光是因為？",
+          "options": [
+            "月亮燃燒",
+            "反射太陽光",
+            "地球發光",
+            "星星貼上去"
+          ],
+          "answer": 1,
+          "explain": "月光是太陽光的反射。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 5,
+          "troopIdWrong": 10,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：反射太陽光。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "teacherId": "G1_MG",
+      "subject": "魔法常識",
+      "name": "薇爾老師",
+      "mapId": 9,
+      "badgeItemId": 66,
+      "clearSwitchId": 29,
+      "progressVarId": 46,
+      "questions": [
+        {
+          "id": "G1_MG-001",
+          "question": "初學者練習安全施法，最重要的是？",
+          "options": [
+            "閉著眼亂揮",
+            "遵守詠唱與安全距離",
+            "把魔杖丟向同學",
+            "在圖書館放火"
+          ],
+          "answer": 1,
+          "explain": "魔法安全規範優先於火力。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：遵守詠唱與安全距離。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MG-002",
+          "question": "魔力耗盡時較合理的做法？",
+          "options": [
+            "硬撐施大魔法",
+            "休息並使用回復魔力的方法",
+            "攻擊老師",
+            "撕毀魔導書"
+          ],
+          "answer": 1,
+          "explain": "耗盡魔力應休息與回復。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：休息並使用回復魔力的方法。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MG-003",
+          "question": "「元素魔法」常見四大元素不含？",
+          "options": [
+            "火",
+            "水",
+            "風",
+            "作業"
+          ],
+          "answer": 3,
+          "explain": "傳統四大元素是地水火風（或火水風土），不含作業。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：作業。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MG-004",
+          "question": "魔導書突然震動發抖，應先？",
+          "options": [
+            "立刻大聲朗讀未知咒語",
+            "保持距離並報告老師",
+            "拿去拍打同學",
+            "丢進水井"
+          ],
+          "answer": 1,
+          "explain": "異常魔導具先回報、保持安全距離。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：保持距離並報告老師。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MG-005",
+          "question": "治療魔法主要作用是？",
+          "options": [
+            "讓人更餓",
+            "回復傷勢或狀態",
+            "把石頭變成劍",
+            "提高考試作弊率"
+          ],
+          "answer": 1,
+          "explain": "治療系著重回復。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：回復傷勢或狀態。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MG-006",
+          "question": "結界的用途常是？",
+          "options": [
+            "裝飾教室",
+            "防護或隔離空間",
+            "煮湯",
+            "寫作文"
+          ],
+          "answer": 1,
+          "explain": "結界多用於防護／隔離。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：防護或隔離空間。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MG-007",
+          "question": "魔力過載的徵兆可能是？",
+          "options": [
+            "魔杖過熱、詠唱失控",
+            "鞋子更白",
+            "作業自動寫完",
+            "永遠不餓"
+          ],
+          "answer": 0,
+          "explain": "過熱與失控是過載警訊。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：魔杖過熱、詠唱失控。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MG-008",
+          "question": "對魔物弱點屬性攻擊，效果通常？",
+          "options": [
+            "更差",
+            "更好",
+            "完全沒變",
+            "讓自己變魔物"
+          ],
+          "answer": 1,
+          "explain": "命中弱點可提升效果。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：更好。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MG-009",
+          "question": "學院禁止私自召喚高階魔獸，原因？",
+          "options": [
+            "太可愛",
+            "危險且可能失控",
+            "老師想獨佔",
+            "會讓分數變高"
+          ],
+          "answer": 1,
+          "explain": "高階召喚風險極高。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：危險且可能失控。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        },
+        {
+          "id": "G1_MG-010",
+          "question": "真正的勇者除了武力，還需要？",
+          "options": [
+            "從不思考",
+            "判斷、學習與保護他人",
+            "只會逃跑",
+            "只收藏裝備"
+          ],
+          "answer": 1,
+          "explain": "學院創校理念：勇者要會思考與保護。",
+          "reward": {
+            "type": "item",
+            "id": 1,
+            "amount": 1
+          },
+          "troopIdCorrect": 1,
+          "troopIdWrong": 6,
+          "correctMsg": "回答正確！看來你有認真上課。",
+          "wrongMsg": "回答錯誤！正確答案是：判斷、學習與保護他人。",
+          "wrongHpRate": [
+            10,
+            15,
+            20,
+            10
+          ]
+        }
+      ]
+    }
+  ]
+}
