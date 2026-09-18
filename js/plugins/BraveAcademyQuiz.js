@@ -1,9 +1,9 @@
 //=============================================================================
-// BraveAcademyQuiz.js  v2.0
+// BraveAcademyQuiz.js  v2.1
 //=============================================================================
 /*:
  * @target MZ
- * @plugindesc 勇者學院問答 v2.0（一老師一題／答對勝利後消失）
+ * @plugindesc 勇者學院問答 v2.1（一老師一題／G1+G2 題庫）
  * @author BraveAcademy
  *
  * @param quizFolder
@@ -17,12 +17,13 @@
  * @default G1_CH_01
  *
  * @help
- * 題庫：data/quiz/grade1.json
- * 每位老師一題。
+ * 題庫：data/quiz/grade1.json + grade2.json
+ * 每位老師一題。teacherId 以 G1_ / G2_ 開頭自動對應題庫。
  * 答對 → 戰鬥勝利 → 老師消失（獨立開關 A）
  * 答錯 → 扣血 → 戰鬥 → 老師留下，須再挑戰到答對勝利
  * 同科 10 位全過 → 科目徽章＋開關
  *
+ * v2.1：同時載入一、二年級題庫；科目前綴與綜合考開關依題庫 meta
  * v2.0：修正連戰／多題回調造成的閃退
  */
 
@@ -50,7 +51,8 @@
   };
   const S = {
     examActive: 23,
-    examOpen: 30
+    examOpenG1: 30,
+    examOpenG2: 46
   };
   const SUBJECT_CODE = {
     "國文": 1,
@@ -65,6 +67,8 @@
   BA.db = null;
   BA.byTeacher = {};
   BA.subjects = [];
+  BA.teachers = [];
+  BA.gradeMeta = {};
   BA.state = null;
   BA.busy = false;
 
@@ -137,41 +141,89 @@
     setTimeout(tick, 16);
   }
 
-  function loadQuiz() {
-    if (BA.db) return Promise.resolve(BA.db);
+  function xhrJson(url) {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
-      xhr.open("GET", "data/" + FOLDER + "/grade1.json");
+      xhr.open("GET", url);
       xhr.overrideMimeType("application/json");
       xhr.onload = () => {
         if (xhr.status < 400) {
-          const db = JSON.parse(xhr.responseText);
-          BA.db = db;
-          BA.subjects = db.subjects || [];
-          BA.byTeacher = {};
-          (db.questions || []).forEach((q) => {
-            BA.byTeacher[q.teacherId] = q;
-          });
-          resolve(db);
-        } else reject(new Error("quiz HTTP " + xhr.status));
+          try {
+            resolve(JSON.parse(xhr.responseText));
+          } catch (e) {
+            reject(e);
+          }
+        } else reject(new Error("quiz HTTP " + xhr.status + " " + url));
       };
-      xhr.onerror = () => reject(new Error("quiz XHR error"));
+      xhr.onerror = () => reject(new Error("quiz XHR error " + url));
       xhr.send();
     });
   }
 
-  function teacherMeta(tid) {
-    return ((BA.db && BA.db.teachers) || []).find((t) => t.teacherId === tid);
-  }
-  function subjectMetaById(id) {
-    return BA.subjects.find((s) => s.id === id);
-  }
-  function subjectMetaByName(name) {
-    return BA.subjects.find((s) => s.name === name);
+  function ingestDb(db) {
+    if (!db) return;
+    const g = (db.grade || 1) | 0;
+    BA.gradeMeta[g] = {
+      examOpenSwitchId: (db.examOpenSwitchId || (g === 2 ? 46 : 30)) | 0,
+      gradeClearSwitchId: (db.gradeClearSwitchId || (g === 2 ? 47 : 31)) | 0
+    };
+    (db.subjects || []).forEach((s) => {
+      const copy = Object.assign({ grade: g }, s);
+      const exists = BA.subjects.find(
+        (x) => x.id === copy.id && (x.grade || 1) === g && x.teacherIdPrefix === copy.teacherIdPrefix
+      );
+      if (!exists) BA.subjects.push(copy);
+    });
+    (db.teachers || []).forEach((t) => {
+      if (!BA.teachers.find((x) => x.teacherId === t.teacherId)) BA.teachers.push(t);
+    });
+    (db.questions || []).forEach((q) => {
+      BA.byTeacher[q.teacherId] = q;
+    });
   }
 
-  function countSubjectCleared(subjectId) {
-    const prefix = "G1_" + subjectId + "_";
+  function loadQuiz() {
+    if (BA.db && Object.keys(BA.byTeacher).length) return Promise.resolve(BA.db);
+    const base = "data/" + FOLDER + "/";
+    return Promise.all([
+      xhrJson(base + "grade1.json"),
+      xhrJson(base + "grade2.json").catch(() => null)
+    ]).then(([g1, g2]) => {
+      BA.byTeacher = {};
+      BA.subjects = [];
+      BA.teachers = [];
+      BA.gradeMeta = {};
+      ingestDb(g1);
+      if (g2) ingestDb(g2);
+      BA.db = g1;
+      return BA.db;
+    });
+  }
+
+  function teacherMeta(tid) {
+    return (BA.teachers || []).find((t) => t.teacherId === tid);
+  }
+  function subjectMetaForTeacher(tid, q) {
+    const meta = teacherMeta(tid);
+    const grade = (q && q.grade) || (String(tid).indexOf("G2_") === 0 ? 2 : 1);
+    if (meta && meta.subjectId) {
+      const hit = BA.subjects.find(
+        (s) => s.id === meta.subjectId && (s.grade || 1) === grade
+      );
+      if (hit) return hit;
+    }
+    if (q && q.subject) {
+      return BA.subjects.find(
+        (s) => s.name === q.subject && (s.grade || 1) === grade
+      );
+    }
+    const prefix = String(tid).replace(/_\d+$/, "");
+    return BA.subjects.find((s) => s.teacherIdPrefix === prefix);
+  }
+
+  function countSubjectCleared(sub) {
+    if (!sub) return 0;
+    const prefix = String(sub.teacherIdPrefix || "") + "_";
     let n = 0;
     const store = clearedStore();
     Object.keys(store).forEach((tid) => {
@@ -180,15 +232,18 @@
     return n;
   }
 
-  function countBadges() {
+  function refreshExamOpenForGrade(grade) {
+    const g = grade | 0;
+    const subs = BA.subjects.filter((s) => (s.grade || 1) === g);
+    if (!subs.length) return 0;
     let n = 0;
-    BA.subjects.forEach((s) => {
-      const sw = s.clearSwitchId;
-      if (sw && getS(sw)) n++;
+    subs.forEach((s) => {
+      if (s.clearSwitchId && getS(s.clearSwitchId)) n++;
     });
+    const meta = BA.gradeMeta[g] || {};
+    const openId = meta.examOpenSwitchId || (g === 2 ? S.examOpenG2 : S.examOpenG1);
+    if (n >= 6) setS(openId, true);
     setV(V.badgeCount, n);
-    setV(V.teachersCleared, n);
-    if (n >= 6) setS(S.examOpen, true);
     return n;
   }
 
@@ -209,10 +264,9 @@
     if (ev) ev.refresh();
   }
 
-  function maybeGrantSubjectBadge(subjectId) {
-    const sub = subjectMetaById(subjectId);
+  function maybeGrantSubjectBadge(sub) {
     if (!sub) return;
-    const cleared = countSubjectCleared(subjectId);
+    const cleared = countSubjectCleared(sub);
     setV(V.subjectProgress, cleared);
     if (cleared < 10) {
       $gameMessage.add(sub.name + "進度：" + cleared + "／10 位老師。");
@@ -226,15 +280,18 @@
         $gameParty.gainItem($dataItems[badgeId], 1);
       }
       $gameMessage.add(sub.name + "十位老師全數通過！獲得徽章！");
-      countBadges();
-      if (getS(S.examOpen)) {
+      const grade = sub.grade || 1;
+      const n = refreshExamOpenForGrade(grade);
+      const meta = BA.gradeMeta[grade] || {};
+      const openId = meta.examOpenSwitchId || (grade === 2 ? S.examOpenG2 : S.examOpenG1);
+      if (n >= 6 && getS(openId)) {
         $gameMessage.add("六枚徽章集齊，綜合考場開放了！");
       }
     }
   }
 
   function syncVars(q, wrong) {
-    setV(V.grade, 1);
+    setV(V.grade, (q.grade || 1) | 0);
     setV(V.subject, SUBJECT_CODE[q.subject] || 0);
     setV(V.teacher, 0);
     setV(V.qNo, 1);
@@ -321,13 +378,8 @@
       markTeacherCleared(st.teacherId);
       eraseTeacherEvent(st.eventId);
       $gameMessage.add("挑戰成功！這位老師離開教室了。");
-      const meta = teacherMeta(st.teacherId);
-      let sid = meta && meta.subjectId;
-      if (!sid && st.question) {
-        const sub = subjectMetaByName(st.question.subject);
-        if (sub) sid = sub.id;
-      }
-      if (sid) maybeGrantSubjectBadge(sid);
+      const sub = subjectMetaForTeacher(st.teacherId, st.question);
+      if (sub) maybeGrantSubjectBadge(sub);
       finishIdle();
       return;
     }
@@ -369,7 +421,7 @@
       })
       .catch((err) => {
         console.error(err);
-        $gameMessage.add("題庫讀取失敗：data/" + FOLDER + "/grade1.json");
+        $gameMessage.add("題庫讀取失敗：data/" + FOLDER + "/");
         finishIdle();
       });
   };
